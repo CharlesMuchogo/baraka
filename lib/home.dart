@@ -67,15 +67,12 @@ class _HomeState extends State<Home> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 8.0),
-                                child: Text(
-                                  (chat[index].isAnswer ? "Kaitlyn:" : "Me:"),
-                                  style: TextStyle(color: Colors.teal),
-                                ),
+                              Text(
+                                (chat[index].isAnswer ? "Kaitlyn:" : "Me:"),
+                                style: TextStyle(color: Colors.teal),
                               ),
                               Text(
-                                chat[index].text,
+                                chat[index].text.trim(),
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.black),
                               ),

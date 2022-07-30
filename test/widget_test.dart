@@ -6,14 +6,17 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:openai/gpt_3.dart';
 
 import 'package:openai/main.dart';
 
 void main() {
+  OpenAI openAI = new OpenAI(apiKey: FlutterConfig.get("Your_API_Key"));
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget( MyApp(openAI));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
